@@ -46,7 +46,7 @@ router.delete("/:id", async (req, res) => {
       return res.status(500).json(err);
     }
   } else {
-    return res.status(403).json("You can delete only your account!");
+    return res.status(403).json("You can delete only your account");
   }
 });
 
@@ -73,15 +73,15 @@ router.put("/:id/follow", async (req, res) => {
         await user.updateOne({ $push: { followers: req.body.userId } });
         // updates current user followings
         await currentUser.updateOne({ $push: { followings: req.params.id } });
-        res.status(200).json("User has been followed.");
+        res.status(200).json("User has been followed");
       } else {
-        res.status(403).json("You already follow this user.");
+        res.status(403).json("You already follow this user");
       }
     } catch (err) {
       res.status(500).json(err);
     }
   } else {
-    res.status(403).json("You can't follow yourself.");
+    res.status(403).json("You can't follow yourself");
   }
 });
 
@@ -96,15 +96,15 @@ router.put("/:id/unfollow", async (req, res) => {
         await user.updateOne({ $pull: { followers: req.body.userId } });
         // updates current user followings
         await currentUser.updateOne({ $pull: { followings: req.params.id } });
-        res.status(200).json("User has been unfollowed.");
+        res.status(200).json("User has been unfollowed");
       } else {
-        res.status(403).json("You don't follow this user.");
+        res.status(403).json("You don't follow this user");
       }
     } catch (err) {
       res.status(500).json(err);
     }
   } else {
-    res.status(403).json("You can't unfollow yourself.");
+    res.status(403).json("You can't unfollow yourself");
   }
 });
 
