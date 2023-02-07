@@ -23,9 +23,10 @@ app.use(helmet());
 app.use(morgan("common"));
 
 // routes
-app.use("/api/user", userRoute);
+app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 
+// run port
 app.listen(port, () => {
   console.log("Backend server is live..");
 });
