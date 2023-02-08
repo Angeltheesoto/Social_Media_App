@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User");
 
 router.get("/", (req, res) => {
-  res.send("user route");
+  res.send("This is users route");
 });
 
 // update user

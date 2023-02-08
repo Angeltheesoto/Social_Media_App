@@ -3,7 +3,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
 router.get("/", (req, res) => {
-  res.send("Hey its auth route.");
+  res.send("This is auth route.");
 });
 
 // REGISTER | create new user

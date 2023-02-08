@@ -9,10 +9,10 @@ const connectDB = require("./config/db");
 const userRoute = require("./routes/users.js");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
+const port = process.env.PORT || 5000;
 
 // env connection
 dotenv.config();
-const port = process.env.PORT || 5000;
 
 // database connection
 mongoose.set("strictQuery", false);

@@ -2,9 +2,9 @@ const router = require("express").Router();
 const Post = require("../models/Post");
 const User = require("../models/User");
 
-// router.get("/", (req, res) => {
-//   res.send("Post page");
-// });
+router.get("/", (req, res) => {
+  res.send("This is posts route");
+});
 
 // create a post
 router.post("/", async (req, res) => {

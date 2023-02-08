@@ -14,6 +14,9 @@ Backend ---
 [morgan] = HTTP request logger middleware for node.js
 
 Frontend ---
+[create-react-app] =
+[@material-ui/core] = core material ui
+[@material-ui/icons] = gets any icons needed with material-ui
 
  -->
 
