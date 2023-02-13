@@ -79,9 +79,9 @@ router.get("/:id", async (req, res) => {
 });
 
 // get timeline posts
-router.get("/timeline/all", async (req, res) => {
+router.get("/timeline/:userId", async (req, res) => {
   try {
-    const currentUser = await User.findById(req.body.userId);
+    const currentUser = await User.findById(req.params.userId);
     const userPosts = await Post.find({ userId: currentUser._id });
     // You have to use a Promise with await if not it wont fetch all users.
     const friendPosts = await Promise.all(
@@ -89,8 +89,7 @@ router.get("/timeline/all", async (req, res) => {
         return Post.find({ userId: friendId });
       })
     );
-    res.json(userPosts.concat(...friendPosts));
-
+    res.status(200).json(userPosts.concat(...friendPosts));
     // res.json(currentUser);
   } catch (err) {
     res.status(500).json(err);

@@ -24,6 +24,9 @@ app.use(helmet());
 app.use(morgan("common"));
 
 // routes
+// app.use("/", (req, res) => {
+//   res.send("Server is live");
+// });
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);

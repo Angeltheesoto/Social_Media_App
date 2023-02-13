@@ -17,7 +17,9 @@ Frontend ---
 [create-react-app] =
 [@material-ui/core] = core material ui
 [@material-ui/icons] = gets any icons needed with material-ui
-
+[react-router-dom] =
+[axios] =
+[timeago.js] =
  -->
 
 ## Bugs
