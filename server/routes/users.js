@@ -2,9 +2,9 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
 
-router.get("/", (req, res) => {
-  res.send("This is users route");
-});
+// router.get("/", (req, res) => {
+//   res.send("This is users route");
+// });
 
 // update user
 router.post("/:id", async (req, res) => {
@@ -51,10 +51,14 @@ router.delete("/:id", async (req, res) => {
 });
 
 // get a user
-router.get("/:id", async (req, res) => {
+router.get("/", async (req, res) => {
+  const userId = req.query.userId;
+  const username = req.query.username;
   try {
     // finds user by id
-    const user = await User.findById(req.params.id);
+    const user = userId
+      ? await User.findById(userId)
+      : await User.findOne({ username: username });
     const { password, updatedAt, ...other } = user._doc; // carries our whole obj here.
     res.status(200).json(other);
   } catch (err) {
