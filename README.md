@@ -19,7 +19,7 @@ Frontend ---
 [react-router-dom] =
 [axios] =
 [timeago.js] =
-[]
+[multer] = used to handle and upload files.
  -->
 
 ## Bugs
