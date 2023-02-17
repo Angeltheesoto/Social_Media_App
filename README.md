@@ -25,10 +25,3 @@ Frontend ---
 ## Bugs
 
 ## Technologies
-
-<!--
-MONGODB:
-  PROJECT(Social Media App)
-  Username(angelsoto)
-  Password(nNqwEB8bRfZlYOxv)
- -->
