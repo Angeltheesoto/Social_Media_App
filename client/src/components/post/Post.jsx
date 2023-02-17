@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { MoreVert } from "@material-ui/icons";
 import axios from "axios";
 import { format } from "timeago.js";
-import { Link } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
 function Post({ post }) {
@@ -39,7 +39,7 @@ function Post({ post }) {
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <Link to={`profile/${user.username}`}>
+            <Link to={`/profile/${user.username}`}>
               <img
                 src={
                   user.profilePicture
