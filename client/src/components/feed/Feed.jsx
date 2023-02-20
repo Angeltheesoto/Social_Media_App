@@ -6,7 +6,7 @@ import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 
 function Feed({ username }) {
-  console.log(username);
+  // console.log(username);
   const [posts, setPosts] = useState([]);
   const { user } = useContext(AuthContext);
 

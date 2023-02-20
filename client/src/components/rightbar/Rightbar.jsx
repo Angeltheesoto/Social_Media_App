@@ -12,7 +12,9 @@ function Rightbar({ user }) {
   const [friends, setFriends] = useState([]);
   const { user: currentUser, dispatch } = useContext(AuthContext);
   const [followed, setFollowed] = useState(
-    currentUser.following.includes(user?.id)
+    // Theres an issue here where followings is not displaying followings. It should be called [currentUser.following] not [followings].
+    currentUser.followings.includes(user?.id)
+    // false
   );
 
   // useEffect(() => {
