@@ -9,6 +9,8 @@ const connectDB = require("./config/db");
 const userRoute = require("./routes/users.js");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
+const conversationRoute = require("./routes/conversations");
+const messageRoute = require("./routes/message");
 const port = process.env.PORT || 5000;
 const multer = require("multer");
 const path = require("path");
@@ -53,6 +55,8 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
+app.use("/api/conversations", conversationRoute);
+app.use("/api/messages", messageRoute);
 
 // run port
 app.listen(port, () => {
