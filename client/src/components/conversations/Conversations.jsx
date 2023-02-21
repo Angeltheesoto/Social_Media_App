@@ -4,7 +4,7 @@ import "./conversations.css";
 
 function Conversations({ conversations, currentUser }) {
   const [user, setUser] = useState(null);
-
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   useEffect(() => {
     const friendId = conversations.members.find((m) => m !== currentUser._id);
 
@@ -12,23 +12,28 @@ function Conversations({ conversations, currentUser }) {
       try {
         const res = await axios("/api/users?userId=" + friendId);
         setUser(res.data);
-        // !come back here, response is not showing in console.
+        // console.log(res);
       } catch (err) {
         console.log(err);
       }
     };
     getUser();
   }, [currentUser, conversations]);
-  console.log(user);
 
   return (
     <div className="conversation">
       <img
-        src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        src={
+          user?.profilePicture
+            ? user.profilePicture
+            : PF + "person/noAvatar.png"
+        }
         alt=""
         className="conversationImg"
       />
-      <span className="conversationName">{user.username}</span>
+      <span className="conversationName">
+        {user?.username ? user.username : "Loading.."}
+      </span>
     </div>
   );
 }
