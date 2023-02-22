@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
-import Messenger from "./components/messenger/Messenger";
+import Messenger from "./pages/messenger/Messenger";
 
 function App() {
   const { user } = useContext(AuthContext);

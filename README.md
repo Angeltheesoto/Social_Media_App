@@ -20,6 +20,11 @@ Frontend ---
 [axios] =
 [timeago.js] =
 [multer] = used to handle and upload files.
+[socket.io-client] = connects to socket
+
+Message--
+[socket.io] = Socket.IO enables real-time, bidirectional and event-based communication. It works on every platform, browser or device, focusing equally on reliability and speed.
+[nodemon] = It simply restarts the nodejs app whenever it sees changes in the file.
  -->
 
 ## Bugs
