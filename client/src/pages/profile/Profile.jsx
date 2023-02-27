@@ -17,8 +17,8 @@ const Profile = () => {
     const fetchUser = async () => {
       const res = await axios.get(`/api/users?username=${username}`);
       setUser(res.data);
-      console.log(res);
-      console.log(res);
+      // console.log(res);
+      // console.log(res);
     };
     fetchUser();
   }, [username]);
@@ -26,7 +26,7 @@ const Profile = () => {
     <>
       <Topbar />
       <div className="profile">
-        <Leftbar />
+        <Leftbar user={user} />
         <div className="profileRight">
           <div className="profileRightTop">
             <div className="profileCover">

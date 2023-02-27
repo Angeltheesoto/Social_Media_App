@@ -25,18 +25,33 @@ export default function Topbar() {
       </div>
       <div className="topbarRight">
         <div className="topbarLinks">
-          <span className="topbarLink">Homepage</span>
-          <span className="topbarLink">Timeline</span>
+          <Link
+            to={`/profile/${user.username}`}
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            <span className="topbarLink">Homepage</span>
+          </Link>
+          <Link
+            to={`/`}
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            <span className="topbarLink">Timeline</span>
+          </Link>
         </div>
         <div className="topbarIcons">
           <div className="topbarIconItem">
             <Person />
             <span className="topbarIconBadge">1</span>
           </div>
-          <div className="topbarIconItem">
-            <Chat />
-            <span className="topbarIconBadge">2</span>
-          </div>
+          <Link
+            to={`/messenger`}
+            style={{ color: "inherit", textDecoration: "inherit" }}
+          >
+            <div className="topbarIconItem">
+              <Chat />
+              <span className="topbarIconBadge">2</span>
+            </div>
+          </Link>
           <div className="topbarIconItem">
             <Notifications />
             <span className="topbarIconBadge">1</span>

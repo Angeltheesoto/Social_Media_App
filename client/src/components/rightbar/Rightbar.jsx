@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./rightbar.css";
-import { Users } from "../../dummyData";
+// import { Users } from "../../dummyData";
 import Online from "../online/Online";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -24,13 +24,16 @@ function Rightbar({ user }) {
   useEffect(() => {
     const getFriends = async () => {
       try {
-        const friendsList = await axios.get("/api/users/friends/" + user._id);
+        const friendsList = await axios.get(
+          "/api/users/friends/" + currentUser._id
+        );
         setFriends(friendsList.data);
       } catch (err) {
         console.log(err);
       }
     };
     getFriends();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const handleClick = async () => {
@@ -64,13 +67,17 @@ function Rightbar({ user }) {
         <img src="/assets/ad.png" alt="" className="rightbarAd" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendsList">
-          {Users.map((u) => (
+          {/* {Users.map((u) => (
             <Online key={u.id} user={u} />
+          ))} */}
+          {friends.map((friends) => (
+            <Online key={friends._id} user={friends} />
           ))}
         </ul>
       </>
     );
   };
+
   const ProfileRightbar = () => {
     return (
       <>
@@ -130,6 +137,7 @@ function Rightbar({ user }) {
       </>
     );
   };
+
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
