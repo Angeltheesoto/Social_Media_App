@@ -12,21 +12,14 @@ function Rightbar({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [friends, setFriends] = useState([]);
   const { user: currentUser, dispatch } = useContext(AuthContext);
-  const [followed, setFollowed] = useState();
-  // Theres an issue here where followings is not displaying followings. It should be called [currentUser.following] not [followings].
-  currentUser.followings.includes(user?.id);
-  // false
-
-  // useEffect(() => {
-  //   setFollowed(currentUser.following.includes(user?.id));
-  // }, [currentUser, user]);
-
+  const [followed, setFollowed] = useState(
+    currentUser.followings.includes(user?.id)
+  );
+  // console.log(currentUser);
   useEffect(() => {
     const getFriends = async () => {
       try {
-        const friendsList = await axios.get(
-          "/api/users/friends/" + currentUser._id
-        );
+        const friendsList = await axios.get("/api/users/friends/" + user._id);
         setFriends(friendsList.data);
       } catch (err) {
         console.log(err);
@@ -138,14 +131,13 @@ function Rightbar({ user }) {
             );
           })}
         </div>
-        <Link to={"/login"} style={{ textDecoration: "none" }}>
-          {/* <div className="rightbarLogOut" onClick={logOut}>
-            <p>Log out</p>
-          </div> */}
-          <button className="rightbarLogOut" onClick={logOut}>
-            <p>Log out</p>
-          </button>
-        </Link>
+        {user.username == currentUser.username && (
+          <Link to={"/login"} style={{ textDecoration: "none" }}>
+            <button className="rightbarLogOut" onClick={logOut}>
+              <p>Log out</p>
+            </button>
+          </Link>
+        )}
       </>
     );
   };
