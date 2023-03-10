@@ -6,20 +6,20 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
+import { logoutCall } from "../../apiCalls";
 
 function Rightbar({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [friends, setFriends] = useState([]);
   const { user: currentUser, dispatch } = useContext(AuthContext);
-  const [followed, setFollowed] = useState(
-    // Theres an issue here where followings is not displaying followings. It should be called [currentUser.following] not [followings].
-    currentUser.followings.includes(user?.id)
-    // false
-  );
+  const [followed, setFollowed] = useState();
+  // Theres an issue here where followings is not displaying followings. It should be called [currentUser.following] not [followings].
+  currentUser.followings.includes(user?.id);
+  // false
 
   // useEffect(() => {
   //   setFollowed(currentUser.following.includes(user?.id));
-  // }, [currentUser, user.id]);
+  // }, [currentUser, user]);
 
   useEffect(() => {
     const getFriends = async () => {
@@ -53,6 +53,10 @@ function Rightbar({ user }) {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const logOut = () => {
+    logoutCall(dispatch);
   };
 
   const HomeRightbar = () => {
@@ -134,6 +138,14 @@ function Rightbar({ user }) {
             );
           })}
         </div>
+        <Link to={"/login"} style={{ textDecoration: "none" }}>
+          {/* <div className="rightbarLogOut" onClick={logOut}>
+            <p>Log out</p>
+          </div> */}
+          <button className="rightbarLogOut" onClick={logOut}>
+            <p>Log out</p>
+          </button>
+        </Link>
       </>
     );
   };

@@ -9,8 +9,6 @@ function Feed({ username }) {
   // console.log(username);
   const [posts, setPosts] = useState([]);
   const { user } = useContext(AuthContext);
-
-  // /api/users/63e29b38276597f246e22c07
   useEffect(() => {
     const fetchPosts = async () => {
       const res = username

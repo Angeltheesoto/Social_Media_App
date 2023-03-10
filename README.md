@@ -1,4 +1,4 @@
-# Social_Media_App
+# Bluebook
 
 <!--
 NPM Packages
@@ -27,6 +27,20 @@ Message--
 [nodemon] = It simply restarts the nodejs app whenever it sees changes in the file.
  -->
 
+Bluebook is a facebook clone that is built using MERN web app framework. I also used socket.io for realtime chat with added friends.
+
+![social_media_app](./frontend/angeltheesoto.png)
+
 ## Bugs
 
+- Currently there is still lots to be done, most buttons are only for visuals and do not redirect anywhere.
+
 ## Technologies
+
+- HTML | CSS
+- JavaScript | React | Redux
+- Node.js | Express.js
+- MongoDB
+- Git
+- React-Bootstrap
+- Adobe XD

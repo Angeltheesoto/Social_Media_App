@@ -1,4 +1,10 @@
-const AuthReducer = (state, action) => {
+const initialState = {
+  user: JSON.parse(localStorage.getItem("user")) || null,
+  isFetching: false,
+  error: false,
+};
+
+const AuthReducer = (state = initialState, action) => {
   switch (action.type) {
     case "LOGIN_START":
       return {
@@ -35,6 +41,12 @@ const AuthReducer = (state, action) => {
             (following) => following !== action.payload
           ),
         },
+      };
+    case "LOGOUT":
+      return {
+        user: localStorage.setItem("user", null),
+        isFetching: false,
+        error: false,
       };
     default:
       return state;

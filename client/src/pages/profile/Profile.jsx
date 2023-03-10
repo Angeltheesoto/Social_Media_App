@@ -22,6 +22,7 @@ const Profile = () => {
     };
     fetchUser();
   }, [username]);
+
   return (
     <>
       <Topbar />

@@ -55,6 +55,8 @@
 }
 
 .loginButton {
+  width: 60%;
+  align-self: center;
   height: 50px;
   border-radius: 10px;
   border: none;
