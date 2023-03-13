@@ -51,7 +51,14 @@ export default function Login() {
                 : "Log In"}
             </button>
             <span className="loginForgot">Forgot Password?</span>
-            <Link to="/register" style={{ textDecoration: "none" }}>
+            <Link
+              to="/register"
+              style={{
+                textDecoration: "none",
+                width: "60%",
+                alignSelf: "center",
+              }}
+            >
               <button className="loginRegisterButton">
                 Create a New Account
               </button>

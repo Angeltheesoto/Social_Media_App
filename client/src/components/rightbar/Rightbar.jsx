@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./rightbar.css";
 // import { Users } from "../../dummyData";
 import Online from "../online/Online";
@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
 import { logoutCall } from "../../apiCalls";
+import EditProfile from "../editProfile/EditProfile";
 
 function Rightbar({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -15,7 +16,10 @@ function Rightbar({ user }) {
   const [followed, setFollowed] = useState(
     currentUser.followings.includes(user?.id)
   );
-  // console.log(currentUser);
+  const [show, setShow] = useState(false);
+  const description = useRef();
+
+  console.log(user);
   useEffect(() => {
     const getFriends = async () => {
       try {
@@ -28,6 +32,10 @@ function Rightbar({ user }) {
     getFriends();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
+
+  const showEditForm = () => {
+    setShow((prev) => !prev);
+  };
 
   const handleClick = async () => {
     try {
@@ -131,12 +139,27 @@ function Rightbar({ user }) {
             );
           })}
         </div>
-        {user.username == currentUser.username && (
+        {user.username === currentUser.username && (
+          <button className="rightbarLogoutButton" onClick={showEditForm}>
+            <p>Edit Profile</p>
+          </button>
+        )}
+        {user.username === currentUser.username && (
           <Link to={"/login"} style={{ textDecoration: "none" }}>
-            <button className="rightbarLogOut" onClick={logOut}>
+            <button className="rightbarLogoutButton" onClick={logOut}>
               <p>Log out</p>
             </button>
           </Link>
+        )}
+        {/* Create another handleClick function that updates the users info to the appropriate route in users.js
+        You need the users id and password to edit your own. 
+        */}
+        {show && (
+          <form className="editFormBox">
+            Description:
+            <input placeholder="description" type="text" ref={description} />
+            <button>Confirm</button>
+          </form>
         )}
       </>
     );

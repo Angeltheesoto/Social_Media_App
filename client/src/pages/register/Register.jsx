@@ -73,7 +73,14 @@ const Register = () => {
             <button className="loginButton" type="submit">
               Sign Up
             </button>
-            <Link to="/login" style={{ textDecoration: "none" }}>
+            <Link
+              to="/login"
+              style={{
+                textDecoration: "none",
+                width: "60%",
+                alignSelf: "center",
+              }}
+            >
               <button className="loginRegisterButton">Log into Account</button>
             </Link>
           </form>

@@ -50,7 +50,7 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 
 // routes
 // app.use("/", (req, res) => {
-//   res.send("Server is live");
+//   res.send("Server is up..");
 // });
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);

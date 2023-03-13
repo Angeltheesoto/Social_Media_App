@@ -27,9 +27,9 @@ Message--
 [nodemon] = It simply restarts the nodejs app whenever it sees changes in the file.
  -->
 
-Bluebook is a facebook clone that is built using MERN web app framework. I also used socket.io for realtime chat with added friends.
+Bluebook is a facebook clone that is built using MERN web app framework. I also used socket.io for realtime chat with friends.
 
-![social_media_app](./frontend/angeltheesoto.png)
+![social_media_app](https://i.postimg.cc/JzFc1VvG/social-media-app.png)
 
 ## Bugs
 

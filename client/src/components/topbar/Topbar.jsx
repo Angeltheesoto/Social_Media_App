@@ -26,13 +26,13 @@ export default function Topbar() {
       <div className="topbarRight">
         <div className="topbarLinks">
           <Link
-            to={`/profile/${user.username}`}
+            to={`/`}
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             <span className="topbarLink">Homepage</span>
           </Link>
           <Link
-            to={`/`}
+            to={`/profile/${user.username}`}
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             <span className="topbarLink">Timeline</span>
